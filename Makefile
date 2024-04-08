@@ -17,6 +17,7 @@ update-deps:
 
 clean-down:
 	@echo "INFO $$(date +%F) $$(date +%T): Clearing down site"
+	@rm -rf docs
 	@rm -rf build/mkdocs/site
 
 build-docs: clean-down
@@ -31,7 +32,7 @@ regen-site: build-site
 	@echo "INFO $$(date +%F) $$(date +%T): Moving site to root"
 	@rm -rf build/mkdocs/docs
 
-requirements: 
+requirements:
 	@Rscript -e "install.packages(c('rmarkdown', 'fs', 'yaml', 'roxygen2', 'remotes', 'progress'), repos='https://cran.rstudio.com/')"
 	@python -m pip install --upgrade pip
 	@pip install --upgrade mkdocs-material awscli

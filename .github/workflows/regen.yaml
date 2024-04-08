@@ -67,6 +67,10 @@ jobs:
         run: |
           make regen-site
 
+      - name: Update docs
+        run: |
+          mv build/mkdocs/site docs/
+
       # Commit all changed files back to the repository
       - name: Commit and push changes.
         run: |
